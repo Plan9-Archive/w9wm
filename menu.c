@@ -225,15 +225,19 @@ Client * c;
   if (c->parent == DefaultRootWindow(dpy))
     return;
 
-  if (c->virtual != virtual && c->state == NormalState && c->ispinned == 0)
+  if (c->virtual != virtual && c->state == NormalState)
     {
-      XUnmapWindow(dpy, c->parent);
-      XUnmapWindow(dpy, c->window);
-      setstate9(c, IconicState);
-      if (c == current)
-	nofocus();
+      if (!c->ispinned) {
+        XUnmapWindow(dpy, c->parent);
+        XUnmapWindow(dpy, c->window);
+        setstate9(c, IconicState);
+        if (c == current)
+          nofocus();
+      } else {
+        nofocus();
+      }
     }
-  else if (c->virtual == virtual &&  c->state == IconicState)
+  else if (c->ispinned || (c->virtual == virtual &&  c->state == IconicState))
     {
       int i;
 

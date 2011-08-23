@@ -1,3 +1,4 @@
 syntax: glob
 
 w9wm
+*.o
