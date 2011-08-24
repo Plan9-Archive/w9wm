@@ -77,6 +77,8 @@ struct Menu {
 };
 
 /* 9wm.c */
+extern int ModifierKey;
+
 extern Display      *dpy;
 extern int          screen;
 extern Window       root;

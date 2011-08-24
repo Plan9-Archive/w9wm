@@ -22,6 +22,8 @@ char    *version[] =
     "w9wm version 0.4.2, Copyright (c) 2000-2003 Benjamin Drieu", 0,
 };
 
+int ModifierKey = Mod4Mask; /* Default, we'll set it from a config file later */
+
 Display         *dpy;
 int             screen;
 Window          root;
@@ -288,7 +290,7 @@ char    *argv[];
 	  if (use_keys)
 	    {
 	      if (XLookupKeysym(&(ev.xkey),0) == XK_Tab && 
-		  (ev.xkey.state & ControlMask))
+		  (ev.xkey.state & ModifierKey))
 		{
 		  if (ev.xkey.state & ShiftMask)
 		    activateprevious();

@@ -48,6 +48,7 @@ void    reshape();
 void    move();
 void    delete();
 void    hide();
+void    pin();
 void    unhide();
 void    unhidec();
 void    renamec();
