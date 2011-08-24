@@ -23,6 +23,7 @@ int on;
 
 	if (use_keys)
 	  {
+	    /* This is where we set up our key combos */
 	    XGrabKey(dpy, 
 		     XKeysymToKeycode(dpy, XK_Tab),
 		     ModifierKey, 
