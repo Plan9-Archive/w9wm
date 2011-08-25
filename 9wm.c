@@ -867,7 +867,7 @@ parseprogsfile()
 	char *buffer;
 
 	buffer = (char *)malloc(1024);
-	snprintf(buffer, 1024, "%s/.w9wmrc", p->pw_dir);
+	snprintf(buffer, 1024, "%s/.w9wmprogs", p->pw_dir);
 
 	file = fopen(buffer, "r");
 	if (!file) {
