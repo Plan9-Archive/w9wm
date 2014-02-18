@@ -1,1 +1,11 @@
-On a Debian-like system, you'll need at least libx11-dev and libxext-dev
+This is my branch of the w9wm window manager. New features:
+
+  * "pin" windows so they'll show up in every virtual desktop
+  * Win-Tab and Win-Shift-Tab to switch through windows.
+
+More coming when I feel like it.
+
+BUILDING
+==========
+
+Make sure you have gcc and make installed. On a Debian-like system, you'll need at least libx11-dev and libxext-dev.
