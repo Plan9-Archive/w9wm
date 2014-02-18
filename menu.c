@@ -202,18 +202,17 @@ switch_to_c(int n, Client *c)
 	if (c->parent == DefaultRootWindow(dpy))
 		return;
 
-	if (c->virtual != virtual && c->state == NormalState) {
-		if (!c->ispinned) {
-			XUnmapWindow(dpy, c->parent);
-			XUnmapWindow(dpy, c->window);
-			setstate9(c, IconicState);
-			if (c == current)
-				nofocus();
-		} else {
+	// Not a pinned window, doesn't exist in new virtual desktop, iconify it
+	if (c->virtual != virtual && c->state == NormalState && !c->ispinned) {
+		XUnmapWindow(dpy, c->parent);
+		XUnmapWindow(dpy, c->window);
+		setstate9(c, IconicState);
+		if (c == current)
 			nofocus();
-		}
-	} else if (c->ispinned
-		   || (c->virtual == virtual && c->state == IconicState)) {
+	}
+
+	// If it exists on the new virtual desktop, restore it.
+	if (c->virtual == virtual && c->state == IconicState) {
 		int i;
 
 		for (i = 0; i < numhidden; i++)
@@ -228,13 +227,24 @@ switch_to_c(int n, Client *c)
 				active(c);
 		}
 	}
+
+	// Pinned window... unfocus if current, set new virtual desktop
+	// (in case we unpin it here), and make it active again if
+	// it was the active window of the new desktop
+	if (c->ispinned) {
+		if (c == current)
+			nofocus();
+		c->virtual = virtual;
+		if (currents[virtual] == c)
+			active(c);
+	}
 }
 
 void
 spawn()
 {
 	/*
-	 * ugly dance to avoid leaving zombies.  Could use SIGCHLD,
+	 * ugly dance to avoid leaving zombies.	 Could use SIGCHLD,
 	 * but it's not very portable, and I'm in a hurry...
 	 */
 	if (fork() == 0) {
