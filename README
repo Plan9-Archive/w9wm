@@ -1,9 +1,9 @@
-This is my branch of the w9wm window manager. New features:
+This is my branch of the w9wm window manager. Mostly I wanted to be able to "pin" windows so they persist. I also changed Alt-tab switching to Winkey-Tab switching, to avoid messing with other programs that may use the Alt key. I intend to make key combos fully configurable at some point and add combinations for switching desktops.
 
-  * "pin" windows so they'll show up in every virtual desktop
-  * Win-Tab and Win-Shift-Tab to switch through windows.
+To view the man page, run this:
 
-More coming when I feel like it.
+	nroff -man w9wm.man | less
+
 
 BUILDING
 ==========

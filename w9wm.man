@@ -108,7 +108,7 @@ of the mouse, by changing the cursor.
 defaults to a fixed size, and thus wants to be dragged; pressing
 button 3 places it.)
 .PP
-The next four menu items are
+The next five menu items are
 .IR Reshape ,
 .IR Move ,
 .IR Delete ,
@@ -138,6 +138,12 @@ brings the window back (unhides it).
 This operation replaces the iconification feature provided by other
 window managers.
 .PP
+The
+.I Pin
+operation lets you set a window to be visible in every virtual screen. Selecting
+.I Pin
+on an already-pinned window will unpin it and leave it in the current virtual screen.
+.PP
 A menu is provided to switch from a virtual screen to another.  This popup is triggered by using the button 2, which displays a menu looking like the previous one but with four entries, 
 .IR One ,
 .IR Two ,
@@ -149,7 +155,7 @@ Selecting one of these entries will switch to another virtual screen.
 There is also a menu to run programs using button 1.  Hold both
 "shift" and "left ctrl" keys and press button 1.  w9wm will then
 display a menu that allows you to exec programs specified in the 
-.I $HOME/.w9wmrc
+.I $HOME/.w9wmprogs
 file.  Put each command in one line.  w9wm does not yet support args
 for these commands, write a one-line shell script if you need this.q
 .SH BUGS AND LIMITATIONS
@@ -158,7 +164,7 @@ Is not completely compatible with \*(85.
 There is a currently a compiled-in limit of 32 hidden windows.
 .PP
 Also, you cannot put more than 32 commands in your
-.IR .w9wmrc 
+.IR .w9wmprogs 
 file
 .SH "SEE ALSO"
 .IR 9term (1),
