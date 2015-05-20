@@ -1,6 +1,7 @@
 /* Copyright (c) 1994 David Hogan, 2000 Benjamin Drieu see README for licence details */
 #include <stdio.h>
-#include <malloc.h>
+/*#include <malloc.h>*/
+#include <stdlib.h>
 #include <string.h>
 #include <X11/X.h>
 #include <X11/Xlib.h>

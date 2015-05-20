@@ -6,8 +6,8 @@
 # if you're using AIX, add "-DBSD_INCLUDES" to "CFLAGS".
 #
 
-CFLAGS = -g -DSHAPE 
-LDFLAGS = -lXext -lX11
+CFLAGS = -g -DSHAPE -I/usr/local/include/
+LDFLAGS = -L/usr/local/lib -lXext -lX11
 BIN = /usr/bin/X11
 
 MANDIR = /usr/man/man1
