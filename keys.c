@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <X11/X.h>
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
@@ -31,4 +32,12 @@ doWorkspaceChange(XEvent *ev)
 	switch_to(n);
 	if (current)
 		cmapfocus(current);
+}
+
+void
+doLock(XEvent *ev)
+{
+	if (fork() == 0) {
+		execlp(LockProgram, LockProgram, 0);
+	}
 }

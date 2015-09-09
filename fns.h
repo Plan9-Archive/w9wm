@@ -87,3 +87,4 @@ void initcurs();
 /* keys.c */
 void doAltTab(XEvent *ev);
 void doWorkspaceChange(XEvent *ev);
+void doLock(XEvent *ev);

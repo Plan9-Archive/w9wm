@@ -22,6 +22,7 @@ char *version[] = {
 };
 
 int ModifierKey = Mod1Mask;	/* Default, we'll set it from a config file later */
+char *LockProgram = "i3lock";
 
 Display *dpy;
 int screen;
@@ -89,6 +90,7 @@ struct keyCmd keyCmds[] = {
 	{ XK_7, doWorkspaceChange },
 	{ XK_8, doWorkspaceChange },
 	{ XK_9, doWorkspaceChange },
+	{ XK_l, doLock },
 	{ 0, NULL },
 };
 

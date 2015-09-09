@@ -182,6 +182,9 @@ changes the current window to the previously-selected one. Pressing this repeate
 .PP
 .B Mod+1, Mod+2, etc.
 changes to the virtual desktop with the given number.
+.PP
+.B Mod+l
+locks the screen with i3lock.
 .SH BUGS AND LIMITATIONS
 Is not completely compatible with \*(85.
 .PP

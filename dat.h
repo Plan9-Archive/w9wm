@@ -109,6 +109,7 @@ extern int debug;
 extern int click_passes;
 extern int use_keys;
 extern int numvirtuals;
+extern char *LockProgram;
 /* client.c */
 extern Client *clients;
 extern Client *current;
