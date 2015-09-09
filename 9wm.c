@@ -119,6 +119,8 @@ main(int argc, char *argv[])
 			 && i + 1 < argc) {
 			display = argv[++i];
 			setenv("DISPLAY", display, 1);
+		} else if (strcmp(argv[i], "-winkey") == 0) {
+			ModifierKey = Mod4Mask;
 		} else if (strcmp(argv[i], "-pass") == 0) {
 			click_passes = 1;
 		} else if (strcmp(argv[i], "-nokeys") == 0) {

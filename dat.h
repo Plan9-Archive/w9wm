@@ -116,6 +116,8 @@ extern Client *current;
 /* menu.c */
 extern Client *hiddenc[];
 extern int numhidden;
+extern char *b2items[];
+extern Menu b2menu;
 extern char *b3items[];
 extern Menu b3menu;
 extern int virtual;

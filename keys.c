@@ -25,6 +25,7 @@ doWorkspaceChange(XEvent *ev)
 	if (n == 0)
 		n = 10;
 	n -= 1;
+	b2menu.lasthit = n; // make the menu point to the right place
 	if (n > numvirtuals)
 		return;
 	switch_to(n);
