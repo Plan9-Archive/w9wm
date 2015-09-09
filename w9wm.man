@@ -27,6 +27,8 @@ w9wm \- \*(85-like Window Manager for X
 .B \-virtuals
 .I n
 ] [
+.B \-winkey
+] [
 .B exit | restart
 ]
 .SH DESCRIPTION
@@ -41,6 +43,7 @@ The
 .B \-grey
 option makes the background light grey, as does \*(85.
 Use this option for maximum authenticity.
+.PP
 .B \-font
 .I fname
 sets the font in
@@ -48,25 +51,35 @@ sets the font in
 menu to
 .IR fname ,
 overriding the default.
+.PP
 .B \-nokeys
-option inhibits keyboard shortcups (Ctrl+Tab and Shift+Ctrl+Tab)
+inhibits keyboard shortcups (Ctrl+Tab and Shift+Ctrl+Tab)
+.PP
 .B \-nostalgia
 applies some useless modifications to w9wm look & feel (windows border
 and cursor appearance)
+.PP
 .B \-debug
 triggers debug mode
+.PP
 .B \-pass
 uses click-to-focus-passes-through-click, which means that clicking on
 a nonactive window with whatever mouse button activates it and follows
 click to this window
+.PP
 .B \-term
 .I termprog
 specifies an alternative program to run when the
 .I New
 menu item is selected.
+.PP
 .B \-virtuals
 .I n
 set the number of virtual screens used
+.PP
+.B \-winkey
+changes the default modifier key from Alt to the Windows key.
+.PP
 .B \-version
 prints the current version on standard error, then exits.
 .PP
@@ -83,9 +96,7 @@ Characters typed at the keyboard go to the current window,
 and mouse clicks outside the current window are swallowed up
 by
 .IR w9wm .
-To make another window the current one, click on it with button 1 or
-type Ctrl+Tab (this shortcut is not ``stable'', which means that I
-could change it in case it would eventually be annoying).  Unlike
+To make another window the current one, click on it with button 1.  Unlike
 other X window managers, w9wm implements `mouse focus': mouse events
 are sent only to the current window.
 .PP
@@ -158,6 +169,19 @@ display a menu that allows you to exec programs specified in the
 .I $HOME/.w9wmprogs
 file.  Put each command in one line.  w9wm does not yet support args
 for these commands, write a one-line shell script if you need this.q
+.SH KEYBOARD SHORTCUTS
+w9wm supports a small number of keyboard shortcuts to make window management easier. The default modifier key is Alt, but it can also be the Windows key if the
+.B -winkey
+flag is passed.
+.PP
+.B Mod+TAB
+changes the current window to the next one.
+.PP
+.B Mod+Shift+TAB
+changes the current window to the previously-selected one. Pressing this repeatedly will cycle between the current window and the previously-selected window.
+.PP
+.B Mod+1, Mod+2, etc.
+changes to the virtual desktop with the given number.
 .SH BUGS AND LIMITATIONS
 Is not completely compatible with \*(85.
 .PP
