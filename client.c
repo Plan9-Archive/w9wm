@@ -22,15 +22,15 @@ setactive(Client *c, int on)
 			       timestamp());
 
 		if (use_keys) {
-			/* This is where we set up our key combos */
+			/* Grab any keys that are modified by our ModifierKey */
 			XGrabKey(dpy,
-				 XKeysymToKeycode(dpy, XK_Tab),
-				 ModifierKey,
-				 root, False, GrabModeAsync, GrabModeAsync);
+				AnyKey,
+				ModifierKey,
+				root, False, GrabModeAsync, GrabModeAsync);
 			XGrabKey(dpy,
-				 XKeysymToKeycode(dpy, XK_Tab),
-				 ModifierKey | ShiftMask,
-				 root, False, GrabModeAsync, GrabModeAsync);
+				AnyKey,
+				ModifierKey,
+				root, False, GrabModeAsync, GrabModeAsync);
 		}
 
 		if (c->proto & Ptakefocus)

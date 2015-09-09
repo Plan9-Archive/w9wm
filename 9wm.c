@@ -21,7 +21,7 @@ char *version[] = {
 	"w9wm version 0.4.2, Copyright (c) 2000-2003 Benjamin Drieu", 0,
 };
 
-int ModifierKey = Mod4Mask;	/* Default, we'll set it from a config file later */
+int ModifierKey = Mod1Mask;	/* Default, we'll set it from a config file later */
 
 Display *dpy;
 int screen;
@@ -72,10 +72,31 @@ char *fontlist[] = {
 	0,
 };
 
+struct keyCmd {
+	int Key;
+	void (*action)(XEvent *ev);
+};
+
+struct keyCmd keyCmds[] = {
+	{ XK_Tab, doAltTab },
+	{ XK_0, doWorkspaceChange },
+	{ XK_1, doWorkspaceChange },
+	{ XK_2, doWorkspaceChange },
+	{ XK_3, doWorkspaceChange },
+	{ XK_4, doWorkspaceChange },
+	{ XK_5, doWorkspaceChange },
+	{ XK_6, doWorkspaceChange },
+	{ XK_7, doWorkspaceChange },
+	{ XK_8, doWorkspaceChange },
+	{ XK_9, doWorkspaceChange },
+	{ 0, NULL },
+};
+
 int
 main(int argc, char *argv[])
 {
 	int i, background, do_exit, do_restart, dummy;
+	int keysym;
 	unsigned long mask;
 	XEvent ev;
 	XGCValues gv;
@@ -279,13 +300,14 @@ main(int argc, char *argv[])
 			break;
 		case KeyPress:
 			if (use_keys) {
-				if (XLookupKeysym(&(ev.xkey), 0) == XK_Tab &&
-				    (ev.xkey.state & ModifierKey)) {
-					if (ev.xkey.state & ShiftMask)
-						activateprevious();
-					else
-						activatenext();
-				} else if (current) {
+				keysym = XLookupKeysym(&(ev.xkey), 0);
+				if (ev.xkey.state & ModifierKey) {
+					for (i = 0; keyCmds[i].Key != 0; i++) {
+						if (keyCmds[i].Key == keysym)
+							keyCmds[i].action(&ev);
+					}
+				}
+				if (current) {
 					ev.xkey.window = current->window;
 					XSendEvent(dpy, current->window, False,
 						   NoEventMask, &ev);

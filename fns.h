@@ -83,3 +83,7 @@ void showhints();
 
 /* cursor.c */
 void initcurs();
+
+/* keys.c */
+void doAltTab(XEvent *ev);
+void doWorkspaceChange(XEvent *ev);

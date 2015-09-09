@@ -108,6 +108,7 @@ extern int curtime;
 extern int debug;
 extern int click_passes;
 extern int use_keys;
+extern int numvirtuals;
 /* client.c */
 extern Client *clients;
 extern Client *current;
