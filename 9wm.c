@@ -96,6 +96,7 @@ int
 main(int argc, char *argv[])
 {
 	int i, background, do_exit, do_restart, dummy;
+	int found;
 	int keysym;
 	unsigned long mask;
 	XEvent ev;
@@ -300,14 +301,17 @@ main(int argc, char *argv[])
 			break;
 		case KeyPress:
 			if (use_keys) {
+				found = 0;
 				keysym = XLookupKeysym(&(ev.xkey), 0);
 				if (ev.xkey.state & ModifierKey) {
 					for (i = 0; keyCmds[i].Key != 0; i++) {
-						if (keyCmds[i].Key == keysym)
+						if (keyCmds[i].Key == keysym) {
 							keyCmds[i].action(&ev);
+							found = 1;
+						}
 					}
 				}
-				if (current) {
+				if (!found && current) {
 					ev.xkey.window = current->window;
 					XSendEvent(dpy, current->window, False,
 						   NoEventMask, &ev);
