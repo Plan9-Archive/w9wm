@@ -1,4 +1,11 @@
-This is my branch of the w9wm window manager. Mostly I wanted to be able to "pin" windows so they persist. I also changed Alt-tab switching to Winkey-Tab switching, to avoid messing with other programs that may use the Alt key. I intend to make key combos fully configurable at some point and add combinations for switching desktops.
+This is my branch of the w9wm window manager. 
+
+Major changes:
+
+* Windows can be "pinned", so they'll stay on every virtual desktop
+* Alt-# key combos to switch virtual desktops
+* Framework to quickly add additional keyboard shortcuts without having to hack in big ugly "if else" statements
+* "-winkey" command line switch to use the Windows key instead of Alt as your command modifier.
 
 To view the man page, run this:
 
@@ -9,3 +16,5 @@ BUILDING
 ==========
 
 Make sure you have gcc and make installed. On a Debian-like system, you'll need at least libx11-dev and libxext-dev.
+
+Run "make". Copy the w9wm binary somewhere in your path if you like.
