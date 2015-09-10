@@ -17,4 +17,8 @@ BUILDING
 
 Make sure you have gcc and make installed. On a Debian-like system, you'll need at least libx11-dev and libxext-dev.
 
-Run "make". Copy the w9wm binary somewhere in your path if you like.
+Run "make" to build.
+
+You can copy the w9wm binary to your personal bin directory, or run "make install" to copy it to /usr/local/bin.
+
+"make install.man" will copy the man page to /usr/local/share/man/man1; this is correct for Debian but may be wrong elsewhere.

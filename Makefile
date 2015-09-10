@@ -8,9 +8,9 @@
 
 CFLAGS = -g -DSHAPE -I/usr/local/include/
 LDFLAGS = -L/usr/local/lib -lXext -lX11
-BIN = /usr/bin/X11
+BIN = /usr/local/bin/
 
-MANDIR = /usr/man/man1
+MANDIR = /usr/local/share/man/man1
 MANSUFFIX = 1
 
 #
@@ -33,7 +33,7 @@ install: w9wm
 	cp w9wm $(BIN)/w9wm
 
 install.man:
-	cp 9wm.man $(MANDIR)/9wm.$(MANSUFFIX)
+	cp w9wm.man $(MANDIR)/w9wm.$(MANSUFFIX)
 
 $(OBJS): $(HFILES)
 
