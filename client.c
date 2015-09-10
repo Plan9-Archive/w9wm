@@ -38,7 +38,7 @@ setactive(Client *c, int on)
 		cmapfocus(c);
 	} else
 		XGrabButton(dpy, AnyButton, AnyModifier, c->parent, False,
-			    ButtonMask, GrabModeAsync, GrabModeSync, None,
+			    ButtonMask, GrabModeSync, GrabModeSync, None,
 			    None);
 	draw_border(c, on);
 }

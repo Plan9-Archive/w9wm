@@ -4,7 +4,7 @@ Major changes:
 
 * Windows can be "pinned", so they'll stay on every virtual desktop
 * Alt-# key combos to switch virtual desktops
-* Framework to quickly add additional keyboard shortcuts without having to hack in big ugly "if else" statements
+* Framework to quickly add additional keyboard shortcuts without having to hack in big ugly "if else" statements (see the keyCmds array in 9wm.c and functions in keys.c)
 * "-winkey" command line switch to use the Windows key instead of Alt as your command modifier.
 
 To view the man page, run this:

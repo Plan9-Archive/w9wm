@@ -81,8 +81,9 @@ button(XButtonEvent *e)
 		if (c) {
 			XMapRaised(dpy, c->parent);
 			active(c);
-			if (click_passes)
+			if (click_passes) {
 				XAllowEvents(dpy, ReplayPointer, curtime);
+			}
 		} else if ((e->state & (ShiftMask | ControlMask)) ==
 			   (ShiftMask | ControlMask)
 			   && progsnames[0] != NULL) {
