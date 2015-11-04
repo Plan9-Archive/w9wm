@@ -25,7 +25,7 @@ manage(Client *c, int mapped)
 	if (XGetClassHint(dpy, c->window, &class) != 0) {	/* ``Success'' */
 		c->instance = class.res_name;
 		c->class = class.res_class;
-		c->is9term = (strcmp(c->class, "9term") == 0);
+		//c->is9term = (strcmp(c->class, "9term") == 0);
 	} else {
 		c->instance = 0;
 		c->class = 0;
